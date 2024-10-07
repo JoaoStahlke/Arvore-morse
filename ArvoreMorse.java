@@ -90,14 +90,14 @@ class ArvoreMorse {
         imprimirArvoreRecursivo(raiz, "", true);
     }
 
-    private void imprimirArvoreRecursivo(NodeMorse no, String prefixo, boolean isEsquerda) {
+    private void imprimirArvoreRecursivo(NodeMorse no, String prefixo, boolean isDireita) {
         if (no == null) return;
 
-        System.out.println(prefixo + (isEsquerda ? "├── " : "└── ") +
+        System.out.println(prefixo + (isDireita ? "├── " : "└── ") +
                 (no.letra == '\0' ? "*" : no.letra));
 
-        imprimirArvoreRecursivo(no.esquerda, prefixo + (isEsquerda ? "│   " : "    "), true);
-        imprimirArvoreRecursivo(no.direita, prefixo + (isEsquerda ? "│   " : "    "), false);
+        imprimirArvoreRecursivo(no.direita, prefixo + (isDireita ? "│   " : "    "), true);
+        imprimirArvoreRecursivo(no.esquerda, prefixo + (isDireita ? "│   " : "    "), false);
     }
     public boolean isCodigoMorseValido(String codigo) {
         // Verifica se a string está vazia

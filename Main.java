@@ -4,9 +4,6 @@ public class Main {
         ArvoreMorse arvore = new ArvoreMorse();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Árvore Morse construída:");
-        arvore.imprimirArvore();
-
         while (true) {
             System.out.println("\nDigite uma mensagem em código Morse (usando . e -), separando letras por espaço:");
             System.out.println("Digite 'imprimir' para visualizar a árvore");
@@ -15,6 +12,7 @@ public class Main {
             String entrada = scanner.nextLine().trim();
 
             if (entrada.equalsIgnoreCase("sair")) {
+                System.out.println("Saindo...imp");
                 break;
             }
             else if (entrada.equalsIgnoreCase("imprimir")) {
