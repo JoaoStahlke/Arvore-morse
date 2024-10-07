@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        ArvoreMorse arvore = new ArvoreMorse();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Árvore Morse construída:");
+        arvore.imprimirArvore();
+
+        while (true) {
+            System.out.println("\nDigite uma mensagem em código Morse (usando . e -), separando letras por espaço:");
+            System.out.println("Digite 'imprimir' para visualizar a árvore");
+            System.out.println("(Digite 'sair' para encerrar)");
+
+            String entrada = scanner.nextLine().trim();
+
+            if (entrada.equalsIgnoreCase("sair")) {
+                break;
+            }
+            else if (entrada.equalsIgnoreCase("imprimir")) {
+                System.out.println("Árvore Morse construída:");
+                arvore.imprimirArvore();
+            }
+            else {
+                // Valida o código Morse antes de tentar decodificar
+                if (arvore.isCodigoMorseValido(entrada)) {
+                    String mensagemDecodificada = arvore.decodificarMensagem(entrada);
+                    System.out.println("Mensagem decodificada: " + mensagemDecodificada);
+                } else {
+                    System.out.println("Erro: Código Morse inválido!");
+                    System.out.println("Use apenas pontos (.) e traços (-), separando as letras com espaço.");
+                    System.out.println("Exemplo válido: ... --- ... (para SOS)");
+                }
+            }
+        }
+
+        scanner.close();
+    }
+}
