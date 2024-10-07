@@ -1,12 +1,11 @@
 class ArvoreMorse {
     private NodeMorse raiz;
     public ArvoreMorse() {
-        // Inicializa a árvore com um nó raiz vazio
-        raiz = new NodeMorse('\0'); //caractere nulo
+
+        raiz = new NodeMorse('\0');
         inicializarArvore();
     }
     private void inicializarArvore() {
-        // Inserção das letras do alfabeto com seus códigos Morse
         inserirCaractere('E', ".");
         inserirCaractere('T', "-");
         inserirCaractere('I', "..");
@@ -100,20 +99,15 @@ class ArvoreMorse {
         imprimirArvoreRecursivo(no.esquerda, prefixo + (isDireita ? "│   " : "    "), false);
     }
     public boolean isCodigoMorseValido(String codigo) {
-        // Verifica se a string está vazia
         if (codigo.trim().isEmpty()) {
             return false;
         }
-        // Divide a mensagem em caracteres individuais
         String[] caracteres = codigo.split(" ");
 
         for (String caractere : caracteres) {
-            // Verifica se cada caractere contém apenas pontos e traços
             if (!caractere.matches("^[.-]+$")) {
                 return false;
             }
-
-            // Verifica se existe um caminho válido na árvore para este código
             if (!existeCaminhoValido(caractere)) {
                 return false;
             }
@@ -136,6 +130,6 @@ class ArvoreMorse {
             }
         }
 
-        return atual.letra != '\0'; // Verifica se é um nó válido (tem caractere)
+        return atual.letra != '\0';
     }
 }

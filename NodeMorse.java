@@ -1,8 +1,7 @@
 class NodeMorse {
     char letra;
-    NodeMorse esquerda;  // ponto (.)
-    NodeMorse direita;   // traço (-)
-
+    NodeMorse esquerda;
+    NodeMorse direita;
     public NodeMorse(char letra) {
         this.letra = letra;
         this.esquerda = null;

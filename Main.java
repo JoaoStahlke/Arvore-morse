@@ -12,15 +12,14 @@ public class Main {
             String entrada = scanner.nextLine().trim();
 
             if (entrada.equalsIgnoreCase("sair")) {
-                System.out.println("Saindo...imp");
+                System.out.println("Saindo...");
                 break;
             }
             else if (entrada.equalsIgnoreCase("imprimir")) {
-                System.out.println("Árvore Morse construída:");
+                System.out.println("Árvore Binária de Busca construída:");
                 arvore.imprimirArvore();
             }
             else {
-                // Valida o código Morse antes de tentar decodificar
                 if (arvore.isCodigoMorseValido(entrada)) {
                     String mensagemDecodificada = arvore.decodificarMensagem(entrada);
                     System.out.println("Mensagem decodificada: " + mensagemDecodificada);
